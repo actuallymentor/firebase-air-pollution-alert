@@ -4,5 +4,10 @@ html
 	include pug/_header.pug
 	body
 		main
-			h1 When I grow up I want to be a firebase app
+			h1 Log in or register
+			div#loginreg
+				input#email( type="email", placeholder="your@email.com" )
+				input#password( type="password", placeholder="Your Password" )
+				input#login( type="submit", value="login" )
+				input#register( type="submit", value="register" )
 	include pug/_footer.pug
