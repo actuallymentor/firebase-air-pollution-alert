@@ -1,45 +1,45 @@
 // Grab styles
 import styles from '../css/styles.scss'
 
-// Import firebase
-import firebase from 'firebase'
+// IMport local firebase wrapper
+import fb from './modules/firebase'
+
+// Import ajax proise module
+import pollution from './modules/pollution-api'
 
 // Shortcuts ( probably make these into modules )
-const doc = {
-	u: document,
-	id: id => document.getElementById( id ),
-	val: id => document.getElementById( id ).value
-}
-const fb = {
-	register: ( email, password ) => firebase.auth().createUserWithEmailAndPassword(email, password).catch( console.log.bind( console ) ),
-	login: ( email, password ) => firebase.auth().signInWithEmailAndPassword(email, password).catch( console.log.bind( console ) )
-}
+import doc from './modules/doc'
 
-
-// I am profoundly unconfortable having an API key in my frontend code...
-firebase.initializeApp( {
-    apiKey: "AIzaSyBew13bLI-FFAnm3rSfggikpw8AYIjz_-I",
-    authDomain: "playground-20814.firebaseapp.com",
-    databaseURL: "https://playground-20814.firebaseio.com",
-    storageBucket: "playground-20814.appspot.com",
-    messagingSenderId: "741236078934"
-} )
-
-const db = firebase.database( )
+// pollution.city( 'Amsterdam' ).then( console.log.bind( console ) )
 
 window.addEventListener( 'load', f => {
-	
-	doc.id( 'loginreg' ).addEventListener( 'click', event => {
-		switch( event.target.id ) {
+
+	// Add listener for the login switch
+	doc.id( 'switchlogin' ).addEventListener( 'click', event => {
+		event.preventDefault( )
+		if ( doc.id( 'login' ).value == 'login' ) {
+			doc.id( 'login' ).value = 'register'
+			doc.id( 'switchlogin' ).innerHTML = 'Or login...'
+		} else {
+			doc.id( 'login' ).value = 'login'
+			doc.id( 'switchlogin' ).innerHTML = 'Or register...'
+		}
+	} )
+
+	// Add a listener for clicks on the form
+	doc.id( 'loginreg' ).addEventListener( 'submit', event => {
+		event.preventDefault( )
+		// Switch for when the form is submitted
+		switch( doc.id( 'login' ).value ) {
 			case 'login': 
 				fb.login( doc.val( 'email' ), doc.val( 'password' ) )
-				.then( f => fb.user = firebase.auth().currentUser )
-				.then( f => doc.id( 'loginreg' ).innerHTML = `You have been logged in as ${fb.user.email}` )
+				.then( f => fb.user = fb.auth().currentUser )
+				.then( f => doc.id( 'loginreg' ).classList.add( 'hide' ) )
+				.then( f => doc.id( 'title' ).innerHTML = `Welcome back ${fb.user.email}` )
 			break
 			case 'register':
 				fb.register( doc.val( 'email' ), doc.val( 'password' ) )
-				.then( f => fb.user = firebase.auth().currentUser )
-				.then( f => doc.id( 'loginreg' ).innerHTML = `You registered as ${fb.user.email}` )
+				.then( f => doc.id( 'loginreg' ).classList.add( 'hide' ) )
 			break
 		}
 	} )

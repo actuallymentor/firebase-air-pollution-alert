@@ -35,6 +35,8 @@ const bsconfig = {
       extensions: ['html']
     }
   },
+  https: true,
+  // proxy: 'https://web.dev:3000',
   notify: {
     styles:  [
     "display: none",
@@ -57,28 +59,6 @@ const bsyncplugconfig = {
   name: servername,
   callback: f => { thebs = bs.get( servername ) }
 }
-// const pluginarray = ( env, server ) => {
-//   let plugins = []
-
-//   if ( env == 'production' ) {
-//     if ( server ) plugins.push( 
-//         new BrowserSyncPlugin( bsconfig, bsyncplugconfig )
-//     )
-//     plugins.push(
-//       new webpack.optimize.UglifyJsPlugin( uglifyconfig )
-//     )
-//     plugins.push(
-//       new webpack.DefinePlugin( envconfig )
-//     )
-//   } else {
-//     plugins.push(
-//       new BrowserSyncPlugin( bsconfig, bsyncplugconfig )
-//     )
-//   }
-
-//   return plugins
-// }
-
 
 
 

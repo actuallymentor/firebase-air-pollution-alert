@@ -2,12 +2,15 @@
 doctype html
 html
 	include pug/_header.pug
-	body
-		main
-			h1 Log in or register
-			div#loginreg
-				input#email( type="email", placeholder="your@email.com" )
-				input#password( type="password", placeholder="Your Password" )
-				input#login( type="submit", value="login" )
-				input#register( type="submit", value="register" )
+	body#index
+		main#main.container
+			div.row
+				div.col.m6.offset-m3.s10.offset-s1
+					.row
+						h1#title.s12 Air Pollution Alert
+					.row
+						include pug/_login.pug
+					.row
+						include pug/_profile.pug
+
 	include pug/_footer.pug
