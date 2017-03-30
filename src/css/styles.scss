@@ -1,5 +1,6 @@
 $background-color: #efefef;
 $accent-color: white;
+$accent-invert: black;
 
 /* Font */
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
@@ -37,6 +38,11 @@ main {
   	padding: 0 20px;
 }
 
+#error {
+	text-align: center;
+	color: $accent-color;
+}
+
 // Index page
 #index {
 	input {
@@ -68,11 +74,13 @@ main {
   			opacity: 0.6;
   			padding: 5px 0 0 0;
   			font-size: 13px;
+  			text-align: center;
   		}
   		input {
-  			text-align: left;
   			background-color: $background-color;
   			border-bottom: solid 1px $accent-color;
+  			padding-left: 0;
+  			font-size: 15px;
   			&:focus {
   				background: white;
   			}
@@ -80,6 +88,9 @@ main {
   				text-align: center;
   				background-color: $accent-color;
   			}
+  		}
+  		#saveprofile {
+  			margin-top: 50px;
   		}
   	}
 }
