@@ -16,6 +16,9 @@ import * as login from './modules/views/login'
 // Import profile flow
 import * as profile from './modules/views/profile'
 
+// Import loading spinner
+import * as loader from './modules/views/loader'
+
 window.addEventListener( 'load', f => {
 
 	// Initialise listeners
@@ -24,6 +27,7 @@ window.addEventListener( 'load', f => {
 
 	// Render profile if user is logged in
 	fb.getUser( )
+	.then( loader.hide )
 	.then( profile.render )
 	.catch( login.show )
 

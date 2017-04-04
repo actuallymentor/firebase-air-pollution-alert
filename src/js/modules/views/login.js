@@ -1,6 +1,7 @@
 import fb from '../firebase'
 import doc from '../doc'
 import { render as renderprofile } from './profile'
+import * as loader from './loader'
 
 // Visually display errors to the user
 const displayerror = err => {
@@ -23,6 +24,9 @@ export const init = f => {
 	// Add a listener for clicks on the form
 	doc.id( 'loginreg' ).addEventListener( 'submit', event => {
 		event.preventDefault( )
+		// Hide the form and add the loader
+		hide( )
+		loader.show( )
 		// Switch for when the form is submitted
 		switch( doc.id( 'login' ).value ) {
 			case 'login': 

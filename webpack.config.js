@@ -1,6 +1,7 @@
 // Browser sync stuff
 const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' )
 const bs = require( 'browser-sync' )
+const ip = require( 'ip' )
 
 // Webpack and css
 const autoprefixer = require ( 'autoprefixer' )
@@ -26,7 +27,7 @@ require('dotenv').config()
 let thebs
 const servername = 'bsserver'
 const bsconfig = {
-  host: 'localhost',
+  host: ip.address(),
   open: true,
   port: 3000,
   server: { 

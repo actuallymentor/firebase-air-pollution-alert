@@ -5,11 +5,13 @@ html
 	body#index
 		img#cover( src="/assets/city-compressed.jpg" )
 		main#main.container
-			div.row#appcard
-				div.col.s12
+			div.row#appwrap
+				div.col.m6.offset-m3.s12#appcard
 					.row
 						h1#title.s12 Air Pollution Alert
 						#error
+					.row
+						include pug/_loader.pug
 					.row
 						include pug/_login.pug
 					.row
