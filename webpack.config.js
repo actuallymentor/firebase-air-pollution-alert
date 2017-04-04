@@ -61,12 +61,20 @@ const bsyncplugconfig = {
   callback: f => { thebs = bs.get( servername ) }
 }
 
+// Remap process env
+const stringify_env = f => {
+  let environment = {}
+  Object.keys( process.env ).map( ( key, index ) => { return environment[ key ] = JSON.stringify( process.env[ key ] ) } )
+  return environment
+}
 
 const plugins = process.env.NODE_ENV == 'production' ?
   [ new webpack.optimize.UglifyJsPlugin( { compress: { warnings: false }, sourceMap: true } ),
-    new webpack.DefinePlugin( { 'process.env': { NODE_ENV: JSON.stringify( 'production' ) } } ) ]
+    new webpack.DefinePlugin( { 'process.env': { NODE_ENV: JSON.stringify( 'production' ) } } ),
+    new webpack.DefinePlugin( stringify_env( ) ) ]
   :
-  [ new BrowserSyncPlugin( bsconfig, bsyncplugconfig )  ]
+  [ new BrowserSyncPlugin( bsconfig, bsyncplugconfig ),
+    new webpack.DefinePlugin( stringify_env( ) ) ]
 
 // ///////////////////////////////
 // Watchers for non webpack files

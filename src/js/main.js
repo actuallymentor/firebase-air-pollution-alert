@@ -19,6 +19,8 @@ import * as profile from './modules/views/profile'
 // Import loading spinner
 import * as loader from './modules/views/loader'
 
+console.log( NODE_ENV )
+
 window.addEventListener( 'load', f => {
 
 	// Initialise listeners
@@ -29,6 +31,9 @@ window.addEventListener( 'load', f => {
 	fb.getUser( )
 	.then( loader.hide )
 	.then( profile.render )
-	.catch( login.show )
+	.catch( f => {
+		loader.hide( )
+		login.show( )
+	} )
 
 } )

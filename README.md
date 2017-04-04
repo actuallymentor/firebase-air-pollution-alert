@@ -1,3 +1,3 @@
-# Firebase Playground
+# Firebase Air Pollution Alert
 
-Firebase looks like fun, so I'm trying it out.
+Using firebase to allow signed in users to set air pollution alerts for their city.
