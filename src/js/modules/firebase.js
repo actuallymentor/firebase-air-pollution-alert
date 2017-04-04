@@ -5,11 +5,14 @@ import db from 'firebase/database'
 fb.auth = auth
 fb.db = db
 
-// Import secrets etc
-import secrets from './public-secrets'
-
 // I am profoundly unconfortable having an API key in my frontend code...
-fb.initializeApp( secrets.fb )
+fb.initializeApp( {
+	apiKey: apiKey,
+    authDomain: authDomain,
+    databaseURL: databaseURL,
+    storageBucket: storageBucket,
+    messagingSenderId: messagingSenderId
+} )
 
 fb.register = ( email, password ) => fb.auth().createUserWithEmailAndPassword(email, password)
 fb.login = ( email, password ) => fb.auth().signInWithEmailAndPassword(email, password)

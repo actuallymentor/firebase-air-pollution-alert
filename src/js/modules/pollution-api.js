@@ -1,10 +1,9 @@
 // Get ajax
 import ajax from './ajax'
-import secrets from './public-secrets'
 
 const citypollution = city => {
 	return new Promise( ( resolve, reject ) => {
-		ajax( 'GET', `//api.waqi.info/feed/${city}/?token=${secrets.aqicn}` )
+		ajax( 'GET', `//api.waqi.info/feed/${city}/?token=${aqicn}` )
 		.then( JSON.parse )
 		.then( resolve )
 		.catch( reject )
@@ -13,7 +12,7 @@ const citypollution = city => {
 
 const coordinatespollution = ( lat, lng ) => {
 	return new Promise( ( resolve, reject ) => {
-		ajax( 'GET', `//api.waqi.info/feed/geo:${lat};${lng}/?token=${secrets.aqicn}` )
+		ajax( 'GET', `//api.waqi.info/feed/geo:${lat};${lng}/?token=${aqicn}` )
 		.then( JSON.parse )
 		.then( resolve )
 		.catch( reject )
