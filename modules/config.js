@@ -11,7 +11,7 @@ module.exports = {
 	system: {
 		public: __dirname + '/../docs/',
 		source: __dirname + '/../src/',
-		url: process.env.NODE_ENV == 'production' ? 'https://www.liveurl.com' : 'https://' + ip.address() + ':3000/',
+		url: process.env.NODE_ENV == 'production' ? 'https://actuallymentor.github.io/firebase-air-pollution-alert/' : 'https://' + ip.address() + ':3000/',
 		gverification: undefined,
 		year: new Date().getFullYear()
 	},
