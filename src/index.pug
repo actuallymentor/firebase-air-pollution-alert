@@ -3,7 +3,7 @@ doctype html
 html
 	include pug/_header.pug
 	body#index
-		img#cover( src="/assets/city-compressed.jpg" )
+		img#cover( src=site.system.url + "/assets/city-compressed.jpg" )
 		main#main.container
 			div.row#appwrap
 				div.col.l6.offset-l3.m8.offset-m2.s12#appcard
