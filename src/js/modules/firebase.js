@@ -24,6 +24,27 @@ fb.getUser = f => {
 		} )
 	} )
 }
+fb.setData = data => {
+	return fb.getUser( )
+	.then( user => {
+		return fb.db.ref( `users/${user.uid}` ).set( data )
+	} )
+}
+fb.getData = f => {
+	return fb.getUser( )
+	.then( user => {
+		return fb.db.ref( `users/${user.uid}` ).once( 'value' )
+	} )
+	.then( snapshot => {
+		return snapshot.val( )
+	} )
+}
+fb.update = data => {
+	return fb.getUser( )
+	.then( user => {
+		return fb.db.ref( `users/${user.uid}` ).update( data )
+	} )
+}
 
 
 export default fb

@@ -19,8 +19,6 @@ import * as profile from './modules/views/profile'
 // Import loading spinner
 import * as loader from './modules/views/loader'
 
-console.log( apiKey )
-
 window.addEventListener( 'load', f => {
 
 	// Initialise listeners

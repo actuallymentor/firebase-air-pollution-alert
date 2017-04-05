@@ -6,12 +6,21 @@ form#profile.col.m8.offset-m2.s12.hide
 	.label.col.s12 Email: 
 	input.col.s12#profileemail( type="text", placeholder="Unknown (click to edit)" )
 
-	.label.col.s12 Location: 
-	input.col.s12#profilelocation( type="text", placeholder="Unknown (click to edit)" )
+	.label.col.s12 Keep me updated about:
+	div#locations.col.s12
+		input.fillwidth#addcity( type="text", placeholder="Click to add city" )
 
-	.label.col.s12 Alerts you want:
-	input.col.m8.offset-m2.s10.offset-s1#dailyalert( type="radio", name="alertfrequency", value="daily" )
-	div Daily forecast
+	.label.col.s12 Send me:
+	div.col.s12#alertsettings
+		div.row
+			label.label( for="dailyalert" ) Daily pollution forecasts
+			input#dailyalert( type="radio", name="alertfrequency", value="dailyalert" )
+		div.row
+			label.label( for="dangeralert" ) Dangerous level alerts
+			input#dangeralert( type="radio", name="alertfrequency", value="dangeralert" )
+		div.row
+			label.label( for="noalert" ) No alerts
+			input#noalert( type="radio", name="alertfrequency", value="noalert" )
 
 	input.col.m8.offset-m2.s10.offset-s1#saveprofile( type="submit", value="Save" )
 

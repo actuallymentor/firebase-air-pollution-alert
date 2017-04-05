@@ -1,6 +1,7 @@
 $background-color: rgb( 239, 239, 239 );
 $accent-color: white;
 $accent-invert: black;
+$error: red;
 
 /* Font */
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
@@ -13,6 +14,10 @@ $accent-invert: black;
 }
 .row {
   margin-bottom: 0;
+}
+.fillwidth {
+  width: 100%;
+  position: relative;
 }
 
 body {
@@ -75,7 +80,18 @@ main {
 
 #error {
 	text-align: center;
-	color: $accent-color;
+	color: $error;
+}
+
+#message {
+  ul {
+      padding: 0;
+      text-align: center;
+      list-style: none;
+      li {
+        padding: 5px 0;
+      }
+  }
 }
 
 // Index page
@@ -104,46 +120,68 @@ main {
   		font-size: 12px;
   		font-style: italic;
   	}
-  	#profile {
-  		.label {
-  			opacity: 0.6;
-  			padding: 5px 0 0 0;
-  			font-size: 13px;
-  			text-align: center;
-  		}
-  		input {
-  			background-color: $background-color;
-  			border-bottom: solid 1px $accent-color;
-  			padding-left: 0;
-  			font-size: 15px;
-  			&:focus {
-  				background: white;
-  			}
-  			&#saveprofile {
-  				text-align: center;
-  				background-color: $accent-color;
-  			}
-  		}
-  		#saveprofile {
-  			margin-top: 50px;
-  		}
-      #logoutbutton {
-        display: inline-block;
-        margin-top: 10px;
-        text-decoration: none;
-        opacity: 0.8;
-        font-size: 12px;
-        font-style: italic;
-        text-align: center;
-      }
-  	}
+}
+
+#profile {
+  .label {
+    opacity: 0.6;
+    padding: 10px 5px;
+    font-size: 15px;
+    text-align: center;
+  }
+  input {
+    background-color: $background-color;
+    border-bottom: solid 1px $accent-color;
+    padding-left: 0;
+    font-size: 15px;
+    &:focus {
+      background: white;
+    }
+    &#saveprofile {
+      text-align: center;
+      background-color: $accent-color;
+    }
+  }
+  #saveprofile {
+    margin-top: 20px;
+  }
+  #logoutbutton {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    opacity: 0.8;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+  }
+  #alertsettings {
+    padding: 10px;
+    input[type="radio"] {
+      float: left;
+    }
+  }
+  #locations {
+    padding-left: 0;
+    .profilecity {
+      width: 100%;
+    }
+    .deletelabel {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      text-decoration: none;
+      font-size: 10px;
+      color: red;
+    }
+  }
 }
 
 #footer {
 	// make the copyright notics less in your face
 	text-align: center;
 	padding: 10px;
-	opacity: 0.6;
+	// opacity: 0.6;
 	font-size: 13px;
-  background-color: $background-color;
+  // background-color: $background-color;
 }
