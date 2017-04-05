@@ -2,6 +2,8 @@
 
 Using firebase to allow signed in users to set air pollution alerts for their city. This was a little project to try out using firebase as a backend system.
 
+[LIVE DEMO HERE]( https://actuallymentor.github.io/firebase-air-pollution-alert/ )
+
 Currently implemented:
 * Authentication
     * Registration
